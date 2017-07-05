@@ -1,7 +1,6 @@
 {
   "name": "webpack-demo",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --port 3000 --progress",
@@ -29,5 +28,6 @@
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
-  }
+  },
+  "description": ""
 }
