@@ -1,6 +1,6 @@
 .g-page *{margin: 0 2px;padding: 0;height: 20px;line-height:20px;font:12px '微软雅黑';box-sizing: border-box;outline: none; user-select: none;-webkit-user-select: none;-ms-user-select: none;-moz-user-select: none;}
 .g-page > *{display: inline-block;}
-.g-page{text-align: center}
+.g-page{text-align: center;min-width: 226px;}
 .u-turn,.m-page li ,.m-skip input{cursor:pointer;}
 .u-turn{position:relative;width:40px;border:1px solid #ddd;border-radius: 3px;}
 .u-turn:hover{background-color: #eee;}
