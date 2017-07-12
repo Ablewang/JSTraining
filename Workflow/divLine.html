@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title></title>
+      <style>
+            *{margin:0;padding: 0}
+            html,body{width:100%;height: 100%;overflow: hidden;}
+            .continer{
+                  position: absolute;
+                  height: 400px;
+                  width: 600px;
+                  border:1px solid #ddd;
+                  z-index: 2017;
+                  top:50%;
+                  left:50%;
+                  transform:translate(-50%,-50%);
+            }
+            .u-lst li{
+                  list-style: none;
+                  margin:10px;
+                  display: block;
+                  width: 80px;
+                  height: 30px;
+                  border:1px solid #fff;
+                  cursor:move;
+                  position: absolute;
+                  left:30px;
+            }
+            .continer:before,.continer:after{
+                  content:'';
+                  position: absolute;
+                  width: 15px;
+                  height: 30px;
+                  background-color: #000;
+                  top :170px;
+                  border:1px solid #ccc;
+            }
+            .continer:before{
+                  border-left:0;
+                  left: -1px;
+                  border-radius: 0 15px 15px 0;
+            }
+
+            .continer:after{
+                  border-right:0;
+                  right: -1px;
+                  border-radius: 15px 0 0 15px;
+            }
+
+      </style>
+</head>
+<body>
+<canvas id="canvas" style="background: #000;z-index: 1;"></canvas>
+<div class="continer">
+      <ul id="u_list" class="u-lst">
+            
+      </ul>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+      let canvas = document.getElementById('canvas');
+      let w = document.body.clientWidth;
+      let h = document.body.clientHeight;
+      canvas.height = h;
+      canvas.width = w;
+      innitLi(5);
+      initLine();
+      function innitLi(len){
+            let ul = document.getElementById('u_list');
+            let res = [];
+            for (var i = 0; i < len; i++) {
+                  let li = document.createElement('li');
+                  li.setAttribute('data-index',i);
+                  li.setAttribute('draggable',true);
+                  li.setAttribute('relative',[Math.floor(Math.random()*len)]);
+                  li.style.top = i * 60 + 'px';
+                  drag(li);
+                  ul.appendChild(li);
+            }
+      }
+
+      function initLine(){
+            let lis = document.getElementById('u_list').children;
+            let lisDic = {};
+            for (var i = 0; i < lis.length; i ++) {
+                  lisDic[lis[i].getAttribute['data-index']||-1] = lis[i];
+            }
+            for (var i = 0; i < lis.length; i ++) {
+                  let rel = lis[i].getAttribute['relative']||-1;
+                  let cur = lis[i];
+                  let relItem = lisDic[rel];
+                  if (lisDic[rel] && lisDic[rel] != cur) {
+                        console.log(cur)
+                        console.log(relItem)
+                  }
+            }
+
+      }
+
+      function drag(obj){
+            obj.onmousedown=function(e){
+                  console.log(e)
+            }
+
+      }
+</script>
