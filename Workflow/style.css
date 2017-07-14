@@ -1,6 +1,10 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-user-select: none;  /* Chrome all / Safari all /opera15+*/  
+    -moz-user-select: none;     /* Firefox all */  
+    -ms-user-select: none;      /* IE 10+ */  
+    user-select: none;  
 }
 
 body, html {
@@ -216,16 +220,14 @@ li {
     cursor: pointer;
 }
 
-.line{
+.line,.dashed{
     position: absolute;
     border: 1px #42a2ca solid;
     z-index: 11;
 }
-
 .dashed{
-    position: absolute;
-    border: 1px #aaa dashed;
-    z-index: 11;
+    border-style: dashed;
+    border-color:#aaa;
 }
 
 .col{

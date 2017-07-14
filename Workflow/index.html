@@ -11,7 +11,7 @@
             <ul class="add-title">
                 <li>功&nbsp;能<br />添&nbsp;加</li>
             </ul>
-            <ul class="add">
+            <ul id="addArea" class="add">
                 <li><img src="images/icon-ks.png" class="btn-green" />开始</li>
                 <li><img src="images/icon-cl.png" class="btn-blue" />处理</li>
                 <li><img src="images/icon-tz.png" class="btn-orange" />通知</li>
@@ -25,7 +25,7 @@
         </div>
         <div class="flow-box-content">
             <ul id="uList">
-                <li class="block-ks tag" data-index="1" relative="2">
+                <li class="block-ks tag" data-index="1" Relation="2,3" data-type="line">
                     <i class="icon"></i>
                     <h3 class="block-title Modify">开始</h3>
                     <span class="span-shut">×</span>
@@ -35,12 +35,12 @@
                     <h3 class="block-title Modify">处理</h3>
                     <span class="span-shut">×</span>
                 </li>
-                <li class="block-tz tag">
+                <li class="block-tz tag" data-index="3" Relation="4" data-type="line">
                     <i class="icon"></i>
                     <h3 class="block-title Modify">通知</h3>
                     <span class="span-shut">×</span>
                 </li>
-                <div class="block-js tag">
+                <div class="block-js tag" data-index="4" Relation="1" data-type="dashed">
                     <i class="icon"></i>
                     <h3 class="block-title Modify">结束</h3>
                     <span class="span-shut">×</span>
