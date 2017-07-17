@@ -39,6 +39,7 @@ module.exports = {
 		contentBase: "./public",
 		inline: true,
 		historyApiFallback: true,
-		hot: true
+		hot: true,
+		host: "192.168.0.88"
 	}
 }

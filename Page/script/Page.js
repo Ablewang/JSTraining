@@ -13,6 +13,7 @@ class Page extends Component {
 			pg_num: 1,
 			max_shw_pg: 10,
 			cur_pg: 1,
+			min_skip_pg: 8,
 			callback: null
 		}
 	}
@@ -84,10 +85,16 @@ class Page extends Component {
 				<span ref="prev" className="u-turn u-turn-prev" onClick={()=>{this.turn(-1);}}></span>
 				{this.state.max_shw_pg < 3 ? <PageSpan {...this.state} />: <PageLi {...this.state} setPage={this.setPage} />}
 				<span ref="next" className="u-turn u-turn-next" onClick={()=>{this.turn(1);}}></span>
-				<div ref="skip" className="m-skip">
-					<input className="m-skip-txt" onChange={(e)=>{this.state.skip = e.target.value.trim()}} type="text" />
-					<input className="m-skip-btn" onClick={()=>{this.skip();}} type="button" value="跳转"/>
-				</div>
+				{
+					this.state.pg_num >= this.state.min_skip_pg ?
+					(
+						<div ref="skip" className="m-skip">
+							<input className="m-skip-txt" onChange={(e)=>{this.state.skip = e.target.value.trim()}} type="text" />
+							<input className="m-skip-btn" onClick={()=>{this.skip();}} type="button" value="跳转"/>
+						</div>
+					):''
+				}
+				
 			</div>
 		);
 	}
@@ -100,7 +107,7 @@ class PageLi extends Component {
 		}
 		let res = [];
 		if (pg_num <= max_shw_pg) {
-			res = this.creatLi(iStart,pg_num);
+			res = this.creatLi(1,pg_num);
 		}else if(pg_num == max_shw_pg + 1){
 			if (this.props.cur_pg > this.props.pg_num/2) {
 				res.push(<li key={1} onClick={()=>{this.props.setPage(1);}} className={1 == this.props.cur_pg ? "m-page-cur" :""}>1</li>);
