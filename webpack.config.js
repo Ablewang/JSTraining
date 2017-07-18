@@ -1,10 +1,10 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+let m = 'Select'
 module.exports = {
 	devtool: 'eval-source-map',
 	entry: [
-		__dirname + '/app/script/main.js'
+		__dirname + '/'+m+'/script/main.js'
 	],
 	output: {
 		path: __dirname + '/public',
@@ -19,6 +19,9 @@ module.exports = {
 			exclude: /nodel_modules/,
 			loader: 'babel-loader'
 		}, {
+			test: /\.(png|jpg)$/,
+			loader: 'file-loader'
+		},{
 			test: /\.css$/,
 			loader: 'style-loader!css-loader'
 		}, {
@@ -28,7 +31,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: __dirname + "/app/page.html"
+			template: __dirname + "/"+m+"/index.html"
 		}),
 		new webpack.HotModuleReplacementPlugin()
 	],
