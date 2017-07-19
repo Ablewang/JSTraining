@@ -3,7 +3,6 @@ import {
 	render
 } from 'react-dom';
 
-import Popup from '../script/Popup'
 import Select from '../script/Select'
 let textArr = [
 "宫保鸡丁","可乐鸡翅","排骨萝卜汤","茄子西红柿",
@@ -30,8 +29,4 @@ function getObjLst(arr,len){
 	}
 	return objLst;
 }
-document.getElementById('btnPopup').onclick = function(){
-	render(<Popup shade_close={true} title="" unique={123} content={
-		<Select data={getObjLst(textArr,10)} originalParent={document.body} callback={callback} />
-	}/>, document.getElementById('popup'))
-}
+render(<Select data={getObjLst(textArr,10)} originalParent={document.body} callback={callback} />, document.getElementById('root'))

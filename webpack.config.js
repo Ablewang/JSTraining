@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-let m = 'Select'
+//基于模块的初始化，根据不同插件文件夹名称初始化插件
+// let m = 'Select';//可搜索下拉框
+// let m = 'Page'; //自适应变化分页
 module.exports = {
 	devtool: 'eval-source-map',
 	entry: [
@@ -39,7 +41,5 @@ module.exports = {
 		contentBase: "./public",
 		inline: true,
 		historyApiFallback: true,
-		hot: true,
-		host: "192.168.0.88"
-	}
+		hot: true	}
 }
