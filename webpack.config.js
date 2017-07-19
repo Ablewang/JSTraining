@@ -2,11 +2,11 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 //基于模块的初始化，根据不同插件文件夹名称初始化插件
 // let m = 'Select';//可搜索下拉框
-// let m = 'Page'; //自适应变化分页
+let m = 'Page'; //自适应变化分页
 module.exports = {
 	devtool: 'eval-source-map',
 	entry: [
-		__dirname + '/'+m+'/script/main.js'
+		__dirname + '/' + m + '/script/main.js'
 	],
 	output: {
 		path: __dirname + '/public',
@@ -23,7 +23,7 @@ module.exports = {
 		}, {
 			test: /\.(png|jpg)$/,
 			loader: 'file-loader'
-		},{
+		}, {
 			test: /\.css$/,
 			loader: 'style-loader!css-loader'
 		}, {
@@ -33,7 +33,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: __dirname + "/"+m+"/index.html"
+			template: __dirname + "/" + m + "/index.html"
 		}),
 		new webpack.HotModuleReplacementPlugin()
 	],
@@ -41,5 +41,6 @@ module.exports = {
 		contentBase: "./public",
 		inline: true,
 		historyApiFallback: true,
-		hot: true	}
+		hot: true
+	}
 }
